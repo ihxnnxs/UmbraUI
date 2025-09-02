@@ -68,6 +68,16 @@ libraries like shadcn/ui, Tailwind UI, and Chakra UI.
 |-----------|---------|-----------------------------|
 | Toast     | ✅ Ready | Elegant notification system |
 
+## 🚀 Coming in v0.3
+
+| Component | Status | Description |
+|-----------|--------|-------------|
+| **Skeleton** | 🔄 Planned | Loading placeholders |
+| **Popover** | 🔄 Planned | Tooltips and popovers |
+| **Divider** | 🔄 Planned | Content separators |
+| **Progress** | 🔄 Planned | Progress indicators |
+| **Breadcrumb** | 🔄 Planned | Navigation breadcrumbs |
+
 ## Installation
 
 You can install the package via composer:
