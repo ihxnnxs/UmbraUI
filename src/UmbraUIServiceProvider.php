@@ -30,7 +30,7 @@ class UmbraUIServiceProvider extends ServiceProvider
         'tabs',
         'textarea',
         'toast',
-        'progress'
+        'progress',
     ];
 
     public function register(): void
@@ -46,20 +46,20 @@ class UmbraUIServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'umbra-ui');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'umbra-ui');
 
         foreach ($this->components as $component) {
             $this->publishes([
-                __DIR__ . "/../resources/views/components/{$component}" => resource_path("views/components/{$component}"),
+                __DIR__."/../resources/views/components/{$component}" => resource_path("views/components/{$component}"),
             ], $component);
         }
 
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/umbra-ui'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/umbra-ui'),
         ], 'umbra-ui-views');
 
         $this->publishes([
-            __DIR__ . '/../resources/js' => public_path('vendor/umbra-ui/js'),
+            __DIR__.'/../resources/js' => public_path('vendor/umbra-ui/js'),
         ], 'umbra-ui-assets');
 
         Blade::directive('umbraToasts', function () {
