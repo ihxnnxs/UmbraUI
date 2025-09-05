@@ -68,6 +68,11 @@ libraries like shadcn/ui, Tailwind UI, and Chakra UI.
 |-----------|---------|-----------------------------|
 | Toast     | ✅ Ready | Elegant notification system |
 
+### Icons
+
+UmbraUI uses **Tabler Icons** - a beautiful set of 5000 free SVG icons designed for web interfaces. All components that
+require icons come with pre-integrated Tabler icons support for consistency and visual appeal.
+
 ## 🚀 Coming in v0.3
 
 | Component      | Status     | Description            |
@@ -372,6 +377,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [ihxnnxs](https://github.com/ihxnnxs)
 - [All Contributors](../../contributors)
+- [Tabler Icons](https://tabler.io/icons) - Beautiful free SVG icons
 
 ## License
 

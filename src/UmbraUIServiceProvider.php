@@ -32,6 +32,7 @@ class UmbraUIServiceProvider extends ServiceProvider
         'toast',
         'progress',
         'divider',
+        'icons',
     ];
 
     public function register(): void
