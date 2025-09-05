@@ -74,7 +74,7 @@ libraries like shadcn/ui, Tailwind UI, and Chakra UI.
 |----------------|------------|------------------------|
 | **Skeleton**   | 🔄 Planned | Loading placeholders   |
 | **Popover**    | 🔄 Planned | Tooltips and popovers  |
-| **Divider**    | 🔄 Planned | Content separators     |
+| **Divider**    | ✅ Ready    | Content separators     |
 | **Progress**   | ✅ Ready    | Progress indicators    |
 | **Breadcrumb** | 🔄 Planned | Navigation breadcrumbs |
 
