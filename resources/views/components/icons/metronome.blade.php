@@ -1,0 +1,26 @@
+<!--
+tags: [tempo, rhythm, beat, timing, pace, measure, timekeeper, count, cadence, meter]
+version: "2.40"
+unicode: "fd25"
+-->
+@php
+    $hasCustomColor = str_contains($attributes->get('class', ''), 'text-');
+@endphp
+
+<svg {{ $attributes->merge([
+    "xmlns" => "http://www.w3.org/2000/svg",
+    "width" => "24",
+    "height" => "24",
+    "viewBox" => "0 0 24 24",
+    "fill" => "none",
+    "stroke" => "currentColor",
+    "stroke-width" => "1.5",
+    "stroke-linecap" => "round",
+    "stroke-linejoin" => "round",
+])->class([
+    'w-6 h-6',
+    'text-neutral-900 dark:text-neutral-100' => !$hasCustomColor
+]) }}>
+  <path d="M14.153 8.188l-.72 -3.236a2.493 2.493 0 0 0 -4.867 0l-3.025 13.614a2 2 0 0 0 1.952 2.434h7.014a2 2 0 0 0 1.952 -2.434l-.524 -2.357m-4.935 1.791l9 -13" />
+  <path d="M20 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+</svg>

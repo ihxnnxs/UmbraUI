@@ -1,0 +1,36 @@
+<!--
+tags: [distribution, traffic, server, network, scalability, optimization, equilibrium, management, routing, stability]
+category: Computers
+version: "2.16"
+unicode: "fa5c"
+-->
+@php
+    $hasCustomColor = str_contains($attributes->get('class', ''), 'text-');
+@endphp
+
+<svg {{ $attributes->merge([
+    "xmlns" => "http://www.w3.org/2000/svg",
+    "width" => "24",
+    "height" => "24",
+    "viewBox" => "0 0 24 24",
+    "fill" => "none",
+    "stroke" => "currentColor",
+    "stroke-width" => "1.5",
+    "stroke-linecap" => "round",
+    "stroke-linejoin" => "round",
+])->class([
+    'w-6 h-6',
+    'text-neutral-900 dark:text-neutral-100' => !$hasCustomColor
+]) }}>
+  <path d="M12 13m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+  <path d="M12 20m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+  <path d="M12 16v3" />
+  <path d="M12 10v-7" />
+  <path d="M9 6l3 -3l3 3" />
+  <path d="M12 10v-7" />
+  <path d="M9 6l3 -3l3 3" />
+  <path d="M14.894 12.227l6.11 -2.224" />
+  <path d="M17.159 8.21l3.845 1.793l-1.793 3.845" />
+  <path d="M9.101 12.214l-6.075 -2.211" />
+  <path d="M6.871 8.21l-3.845 1.793l1.793 3.845" />
+</svg>

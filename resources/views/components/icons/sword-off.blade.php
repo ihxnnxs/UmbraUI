@@ -1,0 +1,28 @@
+<!--
+category: Games
+tags: [weapon, knight, blade, war, minecraft, warrior]
+unicode: "f434"
+version: "1.94"
+-->
+@php
+    $hasCustomColor = str_contains($attributes->get('class', ''), 'text-');
+@endphp
+
+<svg {{ $attributes->merge([
+    "xmlns" => "http://www.w3.org/2000/svg",
+    "width" => "24",
+    "height" => "24",
+    "viewBox" => "0 0 24 24",
+    "fill" => "none",
+    "stroke" => "currentColor",
+    "stroke-width" => "1.5",
+    "stroke-linecap" => "round",
+    "stroke-linejoin" => "round",
+])->class([
+    'w-6 h-6',
+    'text-neutral-900 dark:text-neutral-100' => !$hasCustomColor
+]) }}>
+  <path d="M11.938 7.937l3.062 -3.937h5v5l-3.928 3.055m-2.259 1.757l-2.813 2.188l-4 4l-3 -3l4 -4l2.19 -2.815" />
+  <path d="M6.5 11.5l6 6" />
+  <path d="M3 3l18 18" />
+</svg>

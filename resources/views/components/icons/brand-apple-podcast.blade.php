@@ -1,0 +1,28 @@
+<!--
+tags: [audio, software, music, ios, tvos]
+category: Brand
+version: "1.69"
+unicode: "f1e6"
+-->
+@php
+    $hasCustomColor = str_contains($attributes->get('class', ''), 'text-');
+@endphp
+
+<svg {{ $attributes->merge([
+    "xmlns" => "http://www.w3.org/2000/svg",
+    "width" => "24",
+    "height" => "24",
+    "viewBox" => "0 0 24 24",
+    "fill" => "none",
+    "stroke" => "currentColor",
+    "stroke-width" => "1.5",
+    "stroke-linecap" => "round",
+    "stroke-linejoin" => "round",
+])->class([
+    'w-6 h-6',
+    'text-neutral-900 dark:text-neutral-100' => !$hasCustomColor
+]) }}>
+  <path d="M18.364 18.364a9 9 0 1 0 -12.728 0" />
+  <path d="M11.766 22h.468a2 2 0 0 0 1.985 -1.752l.5 -4a2 2 0 0 0 -1.985 -2.248h-1.468a2 2 0 0 0 -1.985 2.248l.5 4a2 2 0 0 0 1.985 1.752z" />
+  <path d="M12 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+</svg>

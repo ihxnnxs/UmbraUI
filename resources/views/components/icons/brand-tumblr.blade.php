@@ -1,0 +1,26 @@
+<!--
+tags: [logo, website, platform, blog, community]
+category: Brand
+version: "1.23"
+unicode: "ed04"
+-->
+@php
+    $hasCustomColor = str_contains($attributes->get('class', ''), 'text-');
+@endphp
+
+<svg {{ $attributes->merge([
+    "xmlns" => "http://www.w3.org/2000/svg",
+    "width" => "24",
+    "height" => "24",
+    "viewBox" => "0 0 24 24",
+    "fill" => "none",
+    "stroke" => "currentColor",
+    "stroke-width" => "1.5",
+    "stroke-linecap" => "round",
+    "stroke-linejoin" => "round",
+])->class([
+    'w-6 h-6',
+    'text-neutral-900 dark:text-neutral-100' => !$hasCustomColor
+]) }}>
+  <path d="M14 21h4v-4h-4v-6h4v-4h-4v-4h-4v1a3 3 0 0 1 -3 3h-1v4h4v6a4 4 0 0 0 4 4" />
+</svg>

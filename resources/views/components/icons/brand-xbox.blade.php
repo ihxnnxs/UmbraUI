@@ -1,0 +1,28 @@
+<!--
+tags: [game, console, videogame, controller]
+category: Brand
+version: "1.79"
+unicode: "f298"
+-->
+@php
+    $hasCustomColor = str_contains($attributes->get('class', ''), 'text-');
+@endphp
+
+<svg {{ $attributes->merge([
+    "xmlns" => "http://www.w3.org/2000/svg",
+    "width" => "24",
+    "height" => "24",
+    "viewBox" => "0 0 24 24",
+    "fill" => "none",
+    "stroke" => "currentColor",
+    "stroke-width" => "1.5",
+    "stroke-linecap" => "round",
+    "stroke-linejoin" => "round",
+])->class([
+    'w-6 h-6',
+    'text-neutral-900 dark:text-neutral-100' => !$hasCustomColor
+]) }}>
+  <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+  <path d="M6.5 5c7.72 2.266 10.037 7.597 12.5 12.5" />
+  <path d="M17.5 5c-7.72 2.266 -10.037 7.597 -12.5 12.5" />
+</svg>
