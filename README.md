@@ -70,12 +70,12 @@ libraries like shadcn/ui, Tailwind UI, and Chakra UI.
 
 ## 🚀 Coming in v0.3
 
-| Component | Status | Description |
-|-----------|--------|-------------|
-| **Skeleton** | 🔄 Planned | Loading placeholders |
-| **Popover** | 🔄 Planned | Tooltips and popovers |
-| **Divider** | 🔄 Planned | Content separators |
-| **Progress** | 🔄 Planned | Progress indicators |
+| Component      | Status     | Description            |
+|----------------|------------|------------------------|
+| **Skeleton**   | 🔄 Planned | Loading placeholders   |
+| **Popover**    | 🔄 Planned | Tooltips and popovers  |
+| **Divider**    | 🔄 Planned | Content separators     |
+| **Progress**   | ✅ Ready    | Progress indicators    |
 | **Breadcrumb** | 🔄 Planned | Navigation breadcrumbs |
 
 ## Installation
