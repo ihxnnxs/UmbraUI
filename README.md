@@ -70,8 +70,25 @@ libraries like shadcn/ui, Tailwind UI, and Chakra UI.
 
 ### Icons
 
-UmbraUI uses **Tabler Icons** - a beautiful set of 5000 free SVG icons designed for web interfaces. All components that
-require icons come with pre-integrated Tabler icons support for consistency and visual appeal.
+UmbraUI uses **[Tabler Icons](https://tabler.io/icons)** - a beautiful set of 4,900+ free SVG icons designed for web interfaces. All components that require icons come with pre-integrated Tabler icons support for consistency and visual appeal.
+
+```blade
+{{-- Basic usage --}}
+<x-umbra-ui::icons.home />
+<x-umbra-ui::icons.user />
+<x-umbra-ui::icons.heart />
+
+{{-- Custom colors --}}
+<x-umbra-ui::icons.heart class="text-red-500" />
+<x-umbra-ui::icons.star class="text-yellow-400" />
+
+{{-- Custom sizes --}}
+<x-umbra-ui::icons.home class="w-4 h-4" />
+<x-umbra-ui::icons.settings class="w-8 h-8" />
+
+{{-- Combined customization --}}
+<x-umbra-ui::icons.bell class="w-6 h-6 text-blue-600" />
+```
 
 ## 🚀 Coming in v0.3
 
