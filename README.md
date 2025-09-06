@@ -45,16 +45,20 @@ libraries like shadcn/ui, Tailwind UI, and Chakra UI.
 
 ### Navigation & Layout ✅
 
-| Component | Status  | Description                        |
-|-----------|---------|------------------------------------|
-| Alert     | ✅ Ready | Success, error, warning, info      |
-| Badge     | ✅ Ready | Status indicators and labels       |
-| Avatar    | ✅ Ready | User profile pictures and initials |
-| Tabs      | ✅ Ready | Tabbed navigation interface        |
-| Accordion | ✅ Ready | Collapsible content sections       |
-| Modal     | ✅ Ready | Dialog/popup overlay               |
-| Card      | ✅ Ready | Universal card with image support  |
-| Dropdown  | ✅ Ready | Context menus with nested submenus |
+| Component  | Status  | Description                        |
+|------------|---------|------------------------------------|
+| Alert      | ✅ Ready | Success, error, warning, info      |
+| Badge      | ✅ Ready | Status indicators and labels       |
+| Avatar     | ✅ Ready | User profile pictures and initials |
+| Tabs       | ✅ Ready | Tabbed navigation interface        |
+| Accordion  | ✅ Ready | Collapsible content sections       |
+| Modal      | ✅ Ready | Dialog/popup overlay               |
+| Card       | ✅ Ready | Universal card with image support  |
+| Dropdown   | ✅ Ready | Context menus with nested submenus |
+| Spinner    | ✅ Ready | Loading animations and states      |
+| Divider    | ✅ Ready | Content separators                 |
+| Progress   | ✅ Ready | Progress indicators                |
+| Breadcrumb | ✅ Ready | Navigation breadcrumbs             |
 
 ### Data Display ✅
 
@@ -92,14 +96,13 @@ appeal.
 <x-umbra-ui::icons.bell class="w-6 h-6 text-blue-600" />
 ```
 
-## 🚀 Coming in v0.3
+## 🚀 Coming in v0.4
 
-| Component      | Status  | Description            |
-|----------------|---------|------------------------|
-| **Spinner**    | ✅ Ready | Loading spinners       |
-| **Divider**    | ✅ Ready | Content separators     |
-| **Progress**   | ✅ Ready | Progress indicators    |
-| **Breadcrumb** | ✅ Ready | Navigation breadcrumbs |
+| Component      | Status     | Description              |
+|----------------|------------|--------------------------|
+| **Popover**    | 🔄 Planned | Tooltips and popovers    |
+| **Command**    | 🔄 Planned | Command palette/search   |
+| **Pagination** | 🔄 Planned | Page navigation controls |
 
 ## Installation
 
