@@ -94,13 +94,12 @@ appeal.
 
 ## 🚀 Coming in v0.3
 
-| Component      | Status     | Description            |
-|----------------|------------|------------------------|
-| **Skeleton**   | 🔄 Planned | Loading placeholders   |
-| **Spinner**    | ✅ Ready    | Loading spinners       |
-| **Divider**    | ✅ Ready    | Content separators     |
-| **Progress**   | ✅ Ready    | Progress indicators    |
-| **Breadcrumb** | ✅ Ready    | Navigation breadcrumbs |
+| Component      | Status  | Description            |
+|----------------|---------|------------------------|
+| **Spinner**    | ✅ Ready | Loading spinners       |
+| **Divider**    | ✅ Ready | Content separators     |
+| **Progress**   | ✅ Ready | Progress indicators    |
+| **Breadcrumb** | ✅ Ready | Navigation breadcrumbs |
 
 ## Installation
 
