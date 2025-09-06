@@ -97,7 +97,7 @@ appeal.
 | Component      | Status     | Description            |
 |----------------|------------|------------------------|
 | **Skeleton**   | 🔄 Planned | Loading placeholders   |
-| **Popover**    | 🔄 Planned | Tooltips and popovers  |
+| **Spinner**    | ✅ Ready    | Loading spinners       |
 | **Divider**    | ✅ Ready    | Content separators     |
 | **Progress**   | ✅ Ready    | Progress indicators    |
 | **Breadcrumb** | ✅ Ready    | Navigation breadcrumbs |
