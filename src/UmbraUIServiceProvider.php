@@ -35,6 +35,7 @@ class UmbraUIServiceProvider extends ServiceProvider
         'icons',
         'breadcrumb',
         'spinner',
+        'popover',
     ];
 
     public function register(): void
