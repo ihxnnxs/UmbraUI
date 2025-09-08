@@ -52,6 +52,14 @@ $toastId = 'toast-' . uniqid();
 
 <div 
     id="{{ $toastId }}"
+    @php
+        $isAssertive = in_array($type, ['error','warning']);
+        $live = $isAssertive ? 'assertive' : 'polite';
+        $role = $isAssertive ? 'alert' : 'status';
+    @endphp
+    role="{{ $role }}"
+    aria-live="{{ $live }}"
+    aria-atomic="true"
     x-data="{ 
         show: false,
         container: null,

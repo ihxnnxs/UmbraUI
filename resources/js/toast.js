@@ -52,8 +52,11 @@ class UmbraToast {
         const toastId = 'toast-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
         const variant = this._getToastVariant(type);
         
+        const isAssertive = ['error','warning'].includes(type);
+        const role = isAssertive ? 'alert' : 'status';
+        const ariaLive = isAssertive ? 'assertive' : 'polite';
         const toastHtml = `
-            <div id="${toastId}" x-data="{
+            <div id="${toastId}" role="${role}" aria-live="${ariaLive}" aria-atomic="true" x-data="{
                 show: false,
                 init() {
                     this.addToStack();

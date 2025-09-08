@@ -42,12 +42,12 @@ if (!$initials && !$src && isset($slot) && !empty(trim($slot))) {
         @if($src)
             <img src="{{ $src }}" alt="{{ $alt }}" class="w-full h-full object-cover">
         @elseif($initials)
-            <span class="{{ $sizeConfig['text'] }} font-medium text-neutral-900 dark:text-neutral-50">
+            <span role="img" aria-label="{{ $alt }}" class="{{ $sizeConfig['text'] }} font-medium text-neutral-900 dark:text-neutral-50">
                 {{ $initials }}
             </span>
         @else
             <!-- Default user icon -->
-            <svg class="{{ $size === 'xs' ? 'w-4 h-4' : ($size === 'sm' ? 'w-5 h-5' : ($size === 'md' ? 'w-6 h-6' : ($size === 'lg' ? 'w-7 h-7' : ($size === 'xl' ? 'w-10 h-10' : 'w-12 h-12')))) }} text-neutral-500 dark:text-neutral-400" fill="currentColor" viewBox="0 0 20 20">
+            <svg role="img" aria-label="{{ $alt }}" class="{{ $size === 'xs' ? 'w-4 h-4' : ($size === 'sm' ? 'w-5 h-5' : ($size === 'md' ? 'w-6 h-6' : ($size === 'lg' ? 'w-7 h-7' : ($size === 'xl' ? 'w-10 h-10' : 'w-12 h-12')))) }} text-neutral-500 dark:text-neutral-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
             </svg>
         @endif

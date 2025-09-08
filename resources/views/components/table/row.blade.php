@@ -22,7 +22,10 @@ if ($clickable) {
         'odd:bg-neutral-25 dark:odd:bg-neutral-925': $parent.striped && !{{ $selected ? 'true' : 'false' }}
     }"
     @if($clickable && $attributes->has('href'))
+        tabindex="0"
         @click="window.location.href = '{{ $attributes->get('href') }}'"
+        @keydown.enter.prevent="window.location.href = '{{ $attributes->get('href') }}'"
+        @keydown.space.prevent="window.location.href = '{{ $attributes->get('href') }}'"
     @endif
 >
     {{ $slot }}

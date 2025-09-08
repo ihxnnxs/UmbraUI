@@ -41,7 +41,12 @@ $showIcon = $attributes->get('show-icon', true);
 $dismissible = $attributes->get('dismissible', false);
 @endphp
 
-<div {{ $attributes->except(['type', 'show-icon', 'dismissible'])->merge(['class' => 'border rounded-lg p-4 ' . $variant['wrapper']]) }} 
+@php
+    $isAssertive = in_array($type, ['error','warning']);
+    $live = $isAssertive ? 'assertive' : 'polite';
+    $role = $isAssertive ? 'alert' : 'status';
+@endphp
+<div {{ $attributes->except(['type', 'show-icon', 'dismissible'])->merge(['class' => 'border rounded-lg p-4 ' . $variant['wrapper'], 'role' => $role, 'aria-live' => $live, 'aria-atomic' => 'true']) }} 
      @if($dismissible) x-data="{ show: true }" x-show="show" x-transition @endif>
     <div class="flex">
         @if($showIcon)

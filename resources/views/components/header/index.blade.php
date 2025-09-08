@@ -88,6 +88,9 @@
             <div class="lg:hidden">
                 <button
                     @click="mobileMenu = !mobileMenu"
+                    :aria-expanded="mobileMenu ? 'true' : 'false'"
+                    aria-controls="mobile-menu"
+                    aria-label="Toggle navigation"
                     class="relative text-gray-700 dark:text-white p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-300"
                 >
                     {{-- Hamburger Icon --}}
@@ -140,6 +143,10 @@
             x-transition:leave-start="transform translate-y-0"
             x-transition:leave-end="transform translate-y-full"
             @click.stop
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile menu"
             class="fixed inset-x-0 bottom-0 top-20 bg-white/90 dark:bg-gray-900/90 backdrop-blur-2xl overflow-y-auto border-t border-gray-200 dark:border-gray-800"
         >
             {{-- Navigation Menu --}}
