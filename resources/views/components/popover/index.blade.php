@@ -2,25 +2,24 @@
     // Placement options: top, bottom, left, right with -start/-end alignment
     $placement = $attributes->get('placement', 'bottom');
     $placements = [
-        'top' => ['panel' => 'bottom-full left-1/2 -translate-x-1/2 mb-2', 'arrow' => 'bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2'],
-        'top-start' => ['panel' => 'bottom-full left-0 mb-2', 'arrow' => 'bottom-0 left-6 translate-y-1/2'],
-        'top-end' => ['panel' => 'bottom-full right-0 mb-2', 'arrow' => 'bottom-0 right-6 translate-y-1/2'],
+        'top' => 'bottom-full left-1/2 -translate-x-1/2 mb-2',
+        'top-start' => 'bottom-full left-0 mb-2',
+        'top-end' => 'bottom-full right-0 mb-2',
 
-        'bottom' => ['panel' => 'top-full left-1/2 -translate-x-1/2 mt-2', 'arrow' => 'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2'],
-        'bottom-start' => ['panel' => 'top-full left-0 mt-2', 'arrow' => 'top-0 left-6 -translate-y-1/2'],
-        'bottom-end' => ['panel' => 'top-full right-0 mt-2', 'arrow' => 'top-0 right-6 -translate-y-1/2'],
+        'bottom' => 'top-full left-1/2 -translate-x-1/2 mt-2',
+        'bottom-start' => 'top-full left-0 mt-2',
+        'bottom-end' => 'top-full right-0 mt-2',
 
-        'left' => ['panel' => 'right-full top-1/2 -translate-y-1/2 mr-2', 'arrow' => 'right-0 top-1/2 -translate-y-1/2 translate-x-1/2'],
-        'left-start' => ['panel' => 'right-full top-0 mr-2', 'arrow' => 'right-0 top-6 translate-x-1/2'],
-        'left-end' => ['panel' => 'right-full bottom-0 mr-2', 'arrow' => 'right-0 bottom-6 translate-x-1/2'],
+        'left' => 'right-full top-1/2 -translate-y-1/2 mr-2',
+        'left-start' => 'right-full top-0 mr-2',
+        'left-end' => 'right-full bottom-0 mr-2',
 
-        'right' => ['panel' => 'left-full top-1/2 -translate-y-1/2 ml-2', 'arrow' => 'left-0 top-1/2 -translate-y-1/2 -translate-x-1/2'],
-        'right-start' => ['panel' => 'left-full top-0 ml-2', 'arrow' => 'left-0 top-6 -translate-x-1/2'],
-        'right-end' => ['panel' => 'left-full bottom-0 ml-2', 'arrow' => 'left-0 bottom-6 -translate-x-1/2'],
+        'right' => 'left-full top-1/2 -translate-y-1/2 ml-2',
+        'right-start' => 'left-full top-0 ml-2',
+        'right-end' => 'left-full bottom-0 ml-2',
     ];
 
-    $placementClass = $placements[$placement]['panel'] ?? $placements['bottom']['panel'];
-    $arrowClass = $placements[$placement]['arrow'] ?? $placements['bottom']['arrow'];
+    $placementClass = $placements[$placement] ?? $placements['bottom'];
 
     $popoverId = 'popover-'.uniqid();
     $triggerMode = $attributes->get('trigger', 'click'); // click | hover
@@ -54,14 +53,9 @@
         id="{{ $popoverId }}"
         role="dialog"
         aria-modal="false"
-        class="absolute z-50 {{ $placementClass }} w-64 text-sm bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-sm dark:shadow-neutral-900/10"
+        class="absolute z-50 {{ $placementClass }} w-max min-w-[14rem] max-w-[32rem] whitespace-normal break-words text-sm leading-6 bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-md dark:shadow-neutral-900/10"
         x-trap.inert.noscroll="open"
     >
-        <!-- Arrow -->
-        <div class="pointer-events-none absolute {{ $arrowClass }}">
-            <div class="w-3 h-3 rotate-45 bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800"></div>
-        </div>
-
         <!-- Header -->
         @isset($header)
             <div class="px-3 py-2 border-b border-neutral-200 dark:border-neutral-800 rounded-t-lg bg-neutral-50 dark:bg-neutral-900/40">

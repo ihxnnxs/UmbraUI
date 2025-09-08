@@ -56,6 +56,7 @@ libraries like shadcn/ui, Tailwind UI, and Chakra UI.
 | Card       | ✅ Ready | Universal card with image support   |
 | Dropdown   | ✅ Ready | Context menus with nested submenus  |
 | Popover    | ✅ Ready | Contextual overlay with click/hover |
+| Tooltip    | ✅ Ready | Accessible hover/focus tooltip      |
 | Spinner    | ✅ Ready | Loading animations and states       |
 | Divider    | ✅ Ready | Content separators                  |
 | Progress   | ✅ Ready | Progress indicators                 |
