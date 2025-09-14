@@ -13,14 +13,30 @@ $positionClass = $positionClasses[$position] ?? $positionClasses['bottom-left'];
 $dropdownId = 'dropdown-' . uniqid();
 @endphp
 
-<div 
-    class="relative inline-block" 
-    x-data="{ 
+<div
+    class="relative inline-block"
+    x-data="{
         open: false,
-        close() { this.open = false; }
-    }" 
-    @click.away="close()" 
+        focusedIndex: -1,
+        close() {
+            this.open = false;
+            this.focusedIndex = -1;
+        },
+        focusNext() {
+            const items = this.$refs.menu.querySelectorAll('[role=menuitem]:not([aria-disabled=true])');
+            this.focusedIndex = this.focusedIndex < items.length - 1 ? this.focusedIndex + 1 : 0;
+            items[this.focusedIndex]?.focus();
+        },
+        focusPrevious() {
+            const items = this.$refs.menu.querySelectorAll('[role=menuitem]:not([aria-disabled=true])');
+            this.focusedIndex = this.focusedIndex > 0 ? this.focusedIndex - 1 : items.length - 1;
+            items[this.focusedIndex]?.focus();
+        }
+    }"
+    @click.away="close()"
     @keydown.escape="close()"
+    @keydown.arrow-down.prevent="open ? focusNext() : (open = true, $nextTick(() => focusNext()))"
+    @keydown.arrow-up.prevent="open ? focusPrevious() : (open = true, $nextTick(() => focusPrevious()))"
 >
     <!-- Trigger Button -->
     <x-umbra-ui::button 
@@ -54,6 +70,7 @@ $dropdownId = 'dropdown-' . uniqid();
     <div
         x-show="open"
         x-cloak
+        x-ref="menu"
         x-transition:enter="transition ease-out duration-200"
         x-transition:enter-start="opacity-0 scale-95"
         x-transition:enter-end="opacity-100 scale-100"
@@ -65,6 +82,8 @@ $dropdownId = 'dropdown-' . uniqid();
         role="menu"
         aria-orientation="vertical"
         @click="close()"
+        @keydown.home.prevent="focusedIndex = 0; $refs.menu.querySelectorAll('[role=menuitem]:not([aria-disabled=true])')[0]?.focus()"
+        @keydown.end.prevent="focusedIndex = $refs.menu.querySelectorAll('[role=menuitem]:not([aria-disabled=true])').length - 1; $refs.menu.querySelectorAll('[role=menuitem]:not([aria-disabled=true])')[$refs.menu.querySelectorAll('[role=menuitem]:not([aria-disabled=true])').length - 1]?.focus()"
         x-trap.inert.noscroll="open"
     >
         {{ $slot }}

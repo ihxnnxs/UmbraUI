@@ -32,6 +32,8 @@ $excludedAttrs = ['href', 'disabled', 'destructive', 'active'];
             'role' => 'menuitem',
             'tabindex' => '-1'
         ]) }}
+        @keydown.enter.prevent="window.location.href = '{{ $href }}'"
+        @keydown.space.prevent="window.location.href = '{{ $href }}'"
     >
         @include('umbra-ui::components.dropdown._item-content')
     </a>
