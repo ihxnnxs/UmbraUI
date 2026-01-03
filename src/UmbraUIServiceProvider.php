@@ -2,6 +2,8 @@
 
 namespace Ihxnnxs\UmbraUI;
 
+use Ihxnnxs\UmbraUI\Commands\AddCommand;
+use Ihxnnxs\UmbraUI\Commands\InitCommand;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -53,6 +55,14 @@ class UmbraUIServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'umbra-ui');
+
+        // Register commands
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                InitCommand::class,
+                AddCommand::class,
+            ]);
+        }
 
         foreach ($this->components as $component) {
             $this->publishes([

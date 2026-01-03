@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_OPTIONS='--max-old-space-size=4096' vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "laravel-vite-plugin": "^1.1",
+    "tailwindcss": "^4.1.18",
+    "vite": "^6.0"
+  }
+}

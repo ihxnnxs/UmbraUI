@@ -15,5 +15,14 @@
         'onchange' => $hasOnChange ? null : "this.setAttribute('aria-checked', this.checked ? 'true' : 'false')",
         'onkeydown' => $hasOnKeyDown ? null : "if(event.key==='Enter'){ this.click(); }",
     ]) }} class="sr-only peer" />
-    <div class="relative w-11 h-6 bg-neutral-200 rounded-full peer dark:bg-neutral-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-neutral-900 dark:peer-checked:bg-neutral-200 dark:after:bg-neutral-900 dark:peer-checked:after:bg-neutral-900 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-neutral-600 peer-focus:ring-offset-2 dark:peer-focus:ring-neutral-400 dark:peer-focus:ring-offset-neutral-900"></div>
+    <div class="{{ cn(
+        'relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent',
+        'transition-colors',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+        'disabled:cursor-not-allowed disabled:opacity-50',
+        'bg-input peer-checked:bg-primary',
+        'after:content-[\'\'] after:absolute after:top-[2px] after:start-[2px] after:bg-background',
+        'after:rounded-full after:h-5 after:w-5 after:transition-transform',
+        'peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5'
+    ) }}"></div>
 </label>

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://umbraui.com/schema.json",
+  "style": "default",
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "resources/css/app.css",
+    "baseColor": "{{BASE_COLOR}}",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "resources/views/components",
+    "umbra": "resources/views/components/umbra"
+  }
+}

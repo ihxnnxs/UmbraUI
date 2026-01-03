@@ -43,7 +43,10 @@
     "autoload": {
         "psr-4": {
             "Ihxnnxs\\UmbraUI\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -66,10 +69,14 @@
         "format": "vendor/bin/pint",
         "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
         "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "sync": [
+            "cp -v registry/ui/*.blade.php workbench/resources/views/components/umbra/ 2>/dev/null || echo 'No components to sync'",
+            "cp -v resources/stubs/app.css.stub workbench/resources/css/app.css 2>/dev/null && echo '✓ Synced app.css' || echo '✗ Failed to sync app.css'"
+        ],
         "serve": [
             "Composer\\Config::disableProcessTimeout",
             "@build",
-            "@php vendor/bin/testbench serve --ansi"
+            "npx concurrently -c \"#3b82f6,#10b981\" \"php vendor/bin/testbench serve --ansi\" \"npm run dev\" --names=server,vite --kill-others"
         ],
         "lint": [
             "@php vendor/bin/pint --ansi",

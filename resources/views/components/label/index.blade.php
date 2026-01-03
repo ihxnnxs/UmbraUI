@@ -1,5 +1,20 @@
-@if($clickable ?? true)
-<label {{ $attributes->merge(['class' => 'text-neutral-900 dark:text-neutral-50 cursor-pointer']) }}>{{ $slot }}</label>
+@php
+    $clickable = $attributes->get('clickable', true);
+    $baseClasses = cn(
+        'text-sm font-medium leading-none',
+        'peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+        $clickable ? 'cursor-pointer' : ''
+    );
+@endphp
+
+@if($clickable)
+<label {{ $attributes
+    ->except(['clickable'])
+    ->class(cn($baseClasses, $attributes->get('class')))
+}}>{{ $slot }}</label>
 @else
-<span {{ $attributes->merge(['class' => 'text-neutral-900 dark:text-neutral-50']) }}>{{ $slot }}</span>
+<span {{ $attributes
+    ->except(['clickable'])
+    ->class(cn($baseClasses, $attributes->get('class')))
+}}>{{ $slot }}</span>
 @endif

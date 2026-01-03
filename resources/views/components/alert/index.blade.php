@@ -1,34 +1,40 @@
 @php
-$type = $attributes->get('type', 'info');
+$type = $attributes->get('type', 'default');
 
 $variants = [
+    'default' => [
+        'wrapper' => 'bg-background border-border text-foreground',
+        'icon' => 'text-foreground',
+        'title' => 'text-foreground',
+        'content' => 'text-muted-foreground'
+    ],
     'success' => [
-        'wrapper' => 'bg-white dark:bg-neutral-950 border-2 border-neutral-200 dark:border-neutral-800 shadow-sm dark:shadow-neutral-900/10 border-l-4 border-l-emerald-500',
-        'icon' => 'text-emerald-500 dark:text-emerald-400',
-        'title' => 'text-neutral-900 dark:text-neutral-50',
-        'content' => 'text-neutral-600 dark:text-neutral-300'
+        'wrapper' => 'bg-background border-l-4 border-l-emerald-500',
+        'icon' => 'text-emerald-500',
+        'title' => 'text-foreground',
+        'content' => 'text-muted-foreground'
     ],
     'error' => [
-        'wrapper' => 'bg-white dark:bg-neutral-950 border-2 border-neutral-200 dark:border-neutral-800 shadow-sm dark:shadow-neutral-900/10 border-l-4 border-l-red-500',
-        'icon' => 'text-red-500 dark:text-red-400',
-        'title' => 'text-neutral-900 dark:text-neutral-50',
-        'content' => 'text-neutral-600 dark:text-neutral-300'
+        'wrapper' => 'bg-destructive/10 border-l-4 border-l-destructive',
+        'icon' => 'text-destructive',
+        'title' => 'text-destructive',
+        'content' => 'text-destructive/90'
     ],
     'warning' => [
-        'wrapper' => 'bg-white dark:bg-neutral-950 border-2 border-neutral-200 dark:border-neutral-800 shadow-sm dark:shadow-neutral-900/10 border-l-4 border-l-amber-500',
-        'icon' => 'text-amber-500 dark:text-amber-400',
-        'title' => 'text-neutral-900 dark:text-neutral-50',
-        'content' => 'text-neutral-600 dark:text-neutral-300'
+        'wrapper' => 'bg-background border-l-4 border-l-amber-500',
+        'icon' => 'text-amber-500',
+        'title' => 'text-foreground',
+        'content' => 'text-muted-foreground'
     ],
     'info' => [
-        'wrapper' => 'bg-white dark:bg-neutral-950 border-2 border-neutral-200 dark:border-neutral-800 shadow-sm dark:shadow-neutral-900/10 border-l-4 border-l-blue-500',
-        'icon' => 'text-blue-500 dark:text-blue-400',
-        'title' => 'text-neutral-900 dark:text-neutral-50',
-        'content' => 'text-neutral-600 dark:text-neutral-300'
+        'wrapper' => 'bg-background border-l-4 border-l-blue-500',
+        'icon' => 'text-blue-500',
+        'title' => 'text-foreground',
+        'content' => 'text-muted-foreground'
     ]
 ];
 
-$variant = $variants[$type] ?? $variants['info'];
+$variant = $variants[$type] ?? $variants['default'];
 
 $icons = [
     'success' => '<svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>',
@@ -45,8 +51,21 @@ $dismissible = $attributes->get('dismissible', false);
     $isAssertive = in_array($type, ['error','warning']);
     $live = $isAssertive ? 'assertive' : 'polite';
     $role = $isAssertive ? 'alert' : 'status';
+
+    $baseClasses = cn(
+        'relative w-full rounded-lg border p-4',
+        $variant['wrapper']
+    );
 @endphp
-<div {{ $attributes->except(['type', 'show-icon', 'dismissible'])->merge(['class' => 'border rounded-lg p-4 ' . $variant['wrapper'], 'role' => $role, 'aria-live' => $live, 'aria-atomic' => 'true']) }} 
+<div {{ $attributes
+    ->except(['type', 'show-icon', 'dismissible'])
+    ->merge([
+        'role' => $role,
+        'aria-live' => $live,
+        'aria-atomic' => 'true'
+    ])
+    ->class(cn($baseClasses, $attributes->get('class')))
+}}
      @if($dismissible) x-data="{ show: true }" x-show="show" x-transition @endif>
     <div class="flex">
         @if($showIcon)

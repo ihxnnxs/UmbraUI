@@ -1,9 +1,17 @@
 @php
     $isInvalid = $attributes->has('aria-invalid') || $attributes->has('aria-describedby');
-    $borderClass = $isInvalid ? 'border-red-300 focus:ring-red-600 dark:border-red-700 dark:focus:ring-red-400' : 'border-neutral-300 focus:ring-neutral-600 dark:border-neutral-700 dark:focus:ring-neutral-400';
+
+    $baseClasses = cn(
+        'h-4 w-4 rounded border border-primary',
+        'ring-offset-background',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+        'disabled:cursor-not-allowed disabled:opacity-50',
+        'data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
+        $isInvalid ? 'border-destructive focus-visible:ring-destructive' : ''
+    );
 @endphp
 
-<input {{ $attributes->merge([
-    'type' => 'checkbox',
-    'class' => 'w-4 h-4 border-2 rounded focus:outline-none focus:ring-2 focus:ring-offset-1 accent-neutral-900 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-neutral-950 dark:accent-neutral-50 ' . $borderClass
-]) }} />
+<input {{ $attributes
+    ->merge(['type' => 'checkbox'])
+    ->class(cn($baseClasses, $attributes->get('class')))
+}} />

@@ -1,10 +1,31 @@
 @php
     $isDisabled = $attributes->has('disabled');
+    $variant = $attributes->get('variant', 'default');
+
+    $variants = [
+        'default' => 'bg-primary text-primary-foreground hover:bg-primary/90',
+        'destructive' => 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+        'outline' => 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+        'secondary' => 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+        'ghost' => 'hover:bg-accent hover:text-accent-foreground',
+        'link' => 'text-primary underline-offset-4 hover:underline',
+    ];
+
+    $baseClasses = cn(
+        'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+        'disabled:pointer-events-none disabled:opacity-50',
+        'px-4 py-2',
+        $variants[$variant] ?? $variants['default']
+    );
 @endphp
-<button {{ $attributes->merge([
-    'type' => 'button',
-    'aria-disabled' => $isDisabled ? 'true' : null,
-    'class' => 'inline-flex items-center justify-center bg-neutral-900 hover:bg-neutral-800 text-neutral-50 px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-neutral-600 focus:ring-offset-2 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-neutral-900 dark:bg-neutral-50 dark:hover:bg-neutral-100 dark:text-neutral-950 dark:focus:ring-neutral-300 dark:focus:ring-offset-2 dark:ring-offset-neutral-950 dark:disabled:hover:bg-neutral-50'
-]) }}>
+<button {{ $attributes
+    ->except(['variant'])
+    ->merge([
+        'type' => 'button',
+        'aria-disabled' => $isDisabled ? 'true' : null,
+    ])
+    ->class(cn($baseClasses, $attributes->get('class')))
+}}>
     {{ $slot ?? 'Button' }}
 </button>
