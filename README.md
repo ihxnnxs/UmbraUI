@@ -18,8 +18,15 @@
   <img src="images/preview/previewDark.png" alt="UmbraUI Dark Theme" width="250">
 </p>
 
-UmbraUI focuses on providing the most essential UI components for modern web applications. Built with
-accessibility-first design, dark/light theme support, and seamless Laravel integration.
+UmbraUI provides the most essential UI components for modern web applications with **full extensibility**, **4 beautiful themes**, and seamless Laravel integration. Every component supports custom classes with intelligent Tailwind class merging.
+
+## ✨ Key Features
+
+- 🎨 **4 Color Schemes** - neutral, stone, zinc, gray with automatic light/dark mode
+- 🔧 **Fully Extensible** - Override any component styles with custom classes
+- 🚀 **CLI Commands** - Interactive setup and component installation
+- ♿ **Accessibility First** - WCAG compliant components
+- 📦 **30+ Components** - Everything you need for modern web apps
 
 ## Essential Components
 
@@ -98,30 +105,66 @@ appeal.
 <x-umbra-ui::icons.bell class="w-6 h-6 text-blue-600" />
 ```
 
-## 🚀 Coming in v0.4
+## 📦 Installation
 
-| Component      | Status     | Description              |
-|----------------|------------|--------------------------|
-| **Command**    | 🔄 Planned | Command palette/search   |
-| **Pagination** | 🔄 Planned | Page navigation controls |
-
-## Installation
-
-You can install the package via composer:
+Install via Composer:
 
 ```bash
 composer require ihxnnxs/umbra-ui
 ```
 
-### Publishing Assets
+Initialize UmbraUI and choose your theme:
 
-To use JavaScript toast notifications, you need to publish the assets:
+```bash
+php artisan umbra:init
+```
+
+This interactive command will:
+- Let you choose from 4 color schemes (neutral, stone, zinc, gray)
+- Create `components.json` configuration
+- Set up your theme with CSS variables
+- Create the components directory
+
+### Publishing Assets (Optional)
+
+For JavaScript toast notifications:
 
 ```bash
 php artisan vendor:publish --tag=umbra-ui-assets
 ```
 
-This will publish the JavaScript files to `public/vendor/umbra-ui/js/`.
+## 🚀 Quick Start
+
+### Theme Customization
+
+Every component supports custom classes with intelligent merging:
+
+```blade
+{{-- Override component styles --}}
+<x-umbra-ui::button class="bg-purple-500 hover:bg-purple-600">
+    Custom Button
+</x-umbra-ui::button>
+
+{{-- Classes are intelligently merged, last wins on conflicts --}}
+<x-umbra-ui::badge variant="primary" class="rounded-full">
+    Rounded Badge
+</x-umbra-ui::badge>
+```
+
+### Installing Additional Components
+
+Use the `umbra:add` command to install components on demand:
+
+```bash
+# Install a single component
+php artisan umbra:add button
+
+# Install multiple components
+php artisan umbra:add button input select
+
+# Install all components
+php artisan umbra:add --all
+```
 
 ## Usage
 
