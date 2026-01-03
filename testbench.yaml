@@ -1,0 +1,23 @@
+laravel: '@testbench'
+
+providers:
+# - Workbench\App\Providers\WorkbenchServiceProvider
+workbench:
+  start: '/'
+  install: true
+  health: false
+  discovers:
+    web: true
+    api: false
+    commands: false
+    components: false
+    factories: false
+    views: true
+  build:
+    - asset-publish
+  assets:
+    - laravel-assets
+  sync:
+    - from: storage
+      to: workbench/storage
+      reverse: true

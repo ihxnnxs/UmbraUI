@@ -76,7 +76,7 @@
         "serve": [
             "Composer\\Config::disableProcessTimeout",
             "@build",
-            "npx concurrently -c \"#3b82f6,#10b981\" \"php vendor/bin/testbench serve --ansi\" \"npm run dev\" --names=server,vite --kill-others"
+            "@php vendor/bin/testbench serve --ansi"
         ],
         "lint": [
             "@php vendor/bin/pint --ansi",

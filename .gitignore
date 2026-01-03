@@ -24,9 +24,13 @@ _ide_helper_models.php
 /.fleet
 /.vscode
 
-# Workbench (development only - not needed by end users)
-/workbench/
-/testbench.yaml
+# Workbench generated files
+workbench/storage/
+workbench/public/
+workbench/resources/views/components/ui/
+workbench/database/
+workbench/bootstrap/
+workbench/app/*
 
 # Development tools
 configure.php
