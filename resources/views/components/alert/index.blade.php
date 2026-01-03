@@ -9,26 +9,26 @@ $variants = [
         'content' => 'text-muted-foreground'
     ],
     'success' => [
-        'wrapper' => 'bg-background border-l-4 border-l-emerald-500',
-        'icon' => 'text-emerald-500',
+        'wrapper' => 'bg-background border-l-4 border-l-green-600 dark:border-l-green-500',
+        'icon' => 'text-green-600 dark:text-green-500',
         'title' => 'text-foreground',
         'content' => 'text-muted-foreground'
     ],
     'error' => [
-        'wrapper' => 'bg-destructive/10 border-l-4 border-l-destructive',
+        'wrapper' => 'border-destructive/50 bg-background text-destructive dark:border-destructive',
         'icon' => 'text-destructive',
         'title' => 'text-destructive',
-        'content' => 'text-destructive/90'
+        'content' => 'text-destructive'
     ],
     'warning' => [
-        'wrapper' => 'bg-background border-l-4 border-l-amber-500',
-        'icon' => 'text-amber-500',
+        'wrapper' => 'bg-background border-l-4 border-l-yellow-600 dark:border-l-yellow-500',
+        'icon' => 'text-yellow-600 dark:text-yellow-500',
         'title' => 'text-foreground',
         'content' => 'text-muted-foreground'
     ],
     'info' => [
-        'wrapper' => 'bg-background border-l-4 border-l-blue-500',
-        'icon' => 'text-blue-500',
+        'wrapper' => 'bg-background border-l-4 border-l-blue-600 dark:border-l-blue-500',
+        'icon' => 'text-blue-600 dark:text-blue-500',
         'title' => 'text-foreground',
         'content' => 'text-muted-foreground'
     ]
@@ -53,7 +53,8 @@ $dismissible = $attributes->get('dismissible', false);
     $role = $isAssertive ? 'alert' : 'status';
 
     $baseClasses = cn(
-        'relative w-full rounded-lg border p-4',
+        'relative w-full rounded-lg border px-4 py-3 text-sm',
+        '[&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4',
         $variant['wrapper']
     );
 @endphp

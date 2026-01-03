@@ -10,10 +10,12 @@ $alignClasses = [
 $alignClass = $alignClasses[$align] ?? $alignClasses['left'];
 
 $baseClasses = [
-    'px-4 py-3',
-    'font-semibold text-neutral-900 dark:text-neutral-50',
-    'uppercase tracking-wider',
-    $alignClass
+    'h-10 px-2',
+    'font-medium text-muted-foreground',
+    $alignClass,
+    'align-middle',
+    '[&:has([role=checkbox])]:pr-0',
+    '[&>[role=checkbox]]:translate-y-0.5'
 ];
 @endphp
 

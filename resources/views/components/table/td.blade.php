@@ -11,9 +11,11 @@ $alignClasses = [
 $alignClass = $alignClasses[$align] ?? $alignClasses['left'];
 
 $baseClasses = [
-    'px-4 py-3',
-    'text-neutral-700 dark:text-neutral-300',
-    $alignClass
+    'p-2',
+    'align-middle',
+    $alignClass,
+    '[&:has([role=checkbox])]:pr-0',
+    '[&>[role=checkbox]]:translate-y-0.5'
 ];
 
 if (!$wrap) {

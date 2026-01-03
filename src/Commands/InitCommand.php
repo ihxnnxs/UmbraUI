@@ -10,7 +10,7 @@ class InitCommand extends Command
 {
     public $signature = 'umbra:init
         {--force : Override existing configuration}
-        {--base-color= : Base color scheme (neutral, zinc, slate, stone, gray)}
+        {--base-color= : Base color scheme (neutral, stone, zinc, gray)}
         {--dev : Development mode (use workbench paths)}';
 
     public $description = 'Initialize UmbraUI in your project';
@@ -70,12 +70,26 @@ class InitCommand extends Command
             return $baseColor;
         }
 
+        // Get current theme from components.json if exists
+        $currentTheme = null;
+        $componentsJsonPath = base_path('components.json');
+        if (File::exists($componentsJsonPath)) {
+            $config = json_decode(File::get($componentsJsonPath), true);
+            $currentTheme = $config['tailwind']['baseColor'] ?? null;
+        }
+
         // Interactive selection
         $schemes = ColorSchemeService::getAvailableSchemes();
+        $defaultIndex = $currentTheme ? array_search($currentTheme, $schemes) : 0;
+
+        $prompt = $currentTheme
+            ? "Which base color would you like to use? [current: {$currentTheme}]"
+            : 'Which base color would you like to use?';
+
         $choice = $this->choice(
-            'Which base color would you like to use?',
+            $prompt,
             $schemes,
-            0 // default to 'neutral'
+            $defaultIndex !== false ? $defaultIndex : 0
         );
 
         return $choice;

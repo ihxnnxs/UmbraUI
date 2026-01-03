@@ -16,10 +16,10 @@
     ];
 
     $statusColors = [
-        'online' => 'bg-emerald-500 dark:bg-emerald-400',
-        'offline' => 'bg-neutral-500 dark:bg-neutral-400',
-        'away' => 'bg-amber-500 dark:bg-amber-400',
-        'busy' => 'bg-red-500 dark:bg-red-400'
+        'online' => 'bg-green-600 dark:bg-green-500',
+        'offline' => 'bg-muted-foreground',
+        'away' => 'bg-yellow-600 dark:bg-yellow-500',
+        'busy' => 'bg-red-600 dark:bg-red-500'
     ];
 
     $sizeConfig = $sizes[$size] ?? $sizes['md'];
@@ -59,13 +59,13 @@
             <img src="{{ $src }}" alt="{{ $alt }}" class="w-full h-full object-cover">
         @elseif($initials)
             <span role="img" aria-label="{{ $alt }}"
-                  class="{{ $sizeConfig['text'] }} font-medium text-neutral-900 dark:text-neutral-50">
+                  class="{{ $sizeConfig['text'] }} font-medium text-foreground">
                 {{ $initials }}
             </span>
         @else
             <!-- Default user icon -->
             <svg role="img" aria-label="{{ $alt }}"
-                 class="{{ $size === 'xs' ? 'w-4 h-4' : ($size === 'sm' ? 'w-5 h-5' : ($size === 'md' ? 'w-6 h-6' : ($size === 'lg' ? 'w-7 h-7' : ($size === 'xl' ? 'w-10 h-10' : 'w-12 h-12')))) }} text-neutral-500 dark:text-neutral-400"
+                 class="{{ $size === 'xs' ? 'w-4 h-4' : ($size === 'sm' ? 'w-5 h-5' : ($size === 'md' ? 'w-6 h-6' : ($size === 'lg' ? 'w-7 h-7' : ($size === 'xl' ? 'w-10 h-10' : 'w-12 h-12')))) }} text-muted-foreground"
                  fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
             </svg>
@@ -74,6 +74,6 @@
 
     @if($status && $statusColor)
         <span
-            class="absolute bottom-0 right-0 block {{ $sizeConfig['status'] }} {{ $statusColor }} border-2 border-white dark:border-neutral-950 {{ $shapeClass }}"></span>
+            class="absolute bottom-0 right-0 block {{ $sizeConfig['status'] }} {{ $statusColor }} border-2 border-background {{ $shapeClass }}"></span>
     @endif
 </div>

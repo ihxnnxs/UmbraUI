@@ -24,13 +24,13 @@ $baseClasses = [
 // Additional styling classes
 $styleClasses = [];
 if ($bordered) {
-    $styleClasses[] = 'border border-neutral-200 dark:border-neutral-800';
+    $styleClasses[] = 'border border-border';
 }
 
 $tableClasses = array_merge($baseClasses, $styleClasses);
 @endphp
 
-<div class="overflow-x-auto rounded-lg {{ $bordered ? 'border border-neutral-200 dark:border-neutral-800' : '' }}">
+<div class="overflow-x-auto rounded-lg {{ $bordered ? 'border border-border' : '' }}">
     <table 
         {{ $attributes->except(['size', 'striped', 'bordered', 'hoverable'])->merge([
             'class' => implode(' ', $tableClasses)
