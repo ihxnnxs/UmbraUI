@@ -2,9 +2,9 @@
 
 namespace Ihxnnxs\UmbraUI\Commands;
 
+use Ihxnnxs\UmbraUI\Services\ColorSchemeService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Ihxnnxs\UmbraUI\Services\ColorSchemeService;
 
 class InitCommand extends Command
 {
@@ -23,6 +23,7 @@ class InitCommand extends Command
     protected function packagePath(string $path = ''): string
     {
         $packageRoot = dirname(__DIR__, 2);
+
         return $path ? $packageRoot.'/'.$path : $packageRoot;
     }
 
