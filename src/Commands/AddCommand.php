@@ -2,11 +2,11 @@
 
 namespace Ihxnnxs\UmbraUI\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use Ihxnnxs\UmbraUI\Services\ComponentInstaller;
 use Ihxnnxs\UmbraUI\Services\DependencyResolver;
 use Ihxnnxs\UmbraUI\Services\RegistryService;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 
 class AddCommand extends Command
 {
@@ -28,6 +28,7 @@ class AddCommand extends Command
     protected function packagePath(string $path = ''): string
     {
         $packageRoot = dirname(__DIR__, 2);
+
         return $path ? $packageRoot.'/'.$path : $packageRoot;
     }
 
