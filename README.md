@@ -105,6 +105,13 @@ appeal.
 <x-umbra-ui::icons.bell class="w-6 h-6 text-blue-600" />
 ```
 
+## 📋 Requirements
+
+- PHP 8.1 or higher
+- Laravel 10.x or 11.x
+- Tailwind CSS 4.x
+- Alpine.js 3.x (for interactive components)
+
 ## 📦 Installation
 
 Install via Composer:
@@ -124,6 +131,20 @@ This interactive command will:
 - Create `components.json` configuration
 - Set up your theme with CSS variables
 - Create the components directory
+
+### Add Alpine.js (Required for Interactive Components)
+
+Include Alpine.js in your layout for components like modals, dropdowns, tabs, etc:
+
+```html
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+```
+
+Or install via npm:
+
+```bash
+npm install alpinejs
+```
 
 ### Publishing Assets (Optional)
 

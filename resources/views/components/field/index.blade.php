@@ -17,9 +17,10 @@
 
 <div {{ $attributes->except(['label', 'error', 'helper', 'required', 'for'])->merge(['class' => 'space-y-2 w-full']) }}>
     @if($label)
-        <x-umbra-ui::label for="{{ $fieldId }}" class="{{ $required ? 'after:content-[\'*\'] after:ml-0.5 after:text-red-500' : '' }}">
+        <x-umbra::label for="{{ $fieldId }}"
+                        class="{{ $required ? 'after:content-[\'*\'] after:ml-0.5 after:text-red-500' : '' }}">
             {{ $label }}
-        </x-umbra-ui::label>
+        </x-umbra::label>
     @endif
 
     <div

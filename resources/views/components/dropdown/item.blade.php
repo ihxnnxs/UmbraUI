@@ -35,7 +35,7 @@ $excludedAttrs = ['href', 'disabled', 'destructive', 'active'];
         @keydown.enter.prevent="window.location.href = '{{ $href }}'"
         @keydown.space.prevent="window.location.href = '{{ $href }}'"
     >
-        @include('umbra-ui::components.dropdown._item-content')
+        @include('umbra::components.dropdown._item-content')
     </a>
 @elseif(!$disabled)
     {{-- Button variant --}}
@@ -48,7 +48,7 @@ $excludedAttrs = ['href', 'disabled', 'destructive', 'active'];
         ]) }}
         @click="$el.closest('[x-data]').__x.$data.close()"
     >
-        @include('umbra-ui::components.dropdown._item-content')
+        @include('umbra::components.dropdown._item-content')
     </button>
 @else
     {{-- Disabled variant --}}
@@ -60,6 +60,6 @@ $excludedAttrs = ['href', 'disabled', 'destructive', 'active'];
             'aria-disabled' => 'true'
         ]) }}
     >
-        @include('umbra-ui::components.dropdown._item-content')
+        @include('umbra::components.dropdown._item-content')
     </div>
 @endif

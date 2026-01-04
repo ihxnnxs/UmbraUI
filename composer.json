@@ -70,7 +70,6 @@
         "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
         "build": "@php vendor/bin/testbench workbench:build --ansi",
         "sync": [
-            "cp -v registry/ui/*.blade.php workbench/resources/views/components/umbra/ 2>/dev/null || echo 'No components to sync'",
             "cp -v resources/stubs/app.css.stub workbench/resources/css/app.css 2>/dev/null && echo '✓ Synced app.css' || echo '✗ Failed to sync app.css'"
         ],
         "serve": [

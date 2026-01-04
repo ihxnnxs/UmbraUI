@@ -31,7 +31,7 @@ workbench/resources/views/components/ui/
 workbench/database/
 workbench/bootstrap/
 workbench/app/*
-
+workbench/storage
 # Development tools
 configure.php
 

@@ -39,7 +39,7 @@ $dropdownId = 'dropdown-' . uniqid();
     @keydown.arrow-up.prevent="open ? focusPrevious() : (open = true, $nextTick(() => focusPrevious()))"
 >
     <!-- Trigger Button -->
-    <x-umbra-ui::button 
+    <x-umbra.button 
         @click="open = !open"
         {{ $attributes->except(['position']) }}
         class="gap-2"
@@ -64,7 +64,7 @@ $dropdownId = 'dropdown-' . uniqid();
         >
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
-    </x-umbra-ui::button>
+    </x-umbra.button>
 
     <!-- Dropdown Menu -->
     <div
