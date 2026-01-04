@@ -69,9 +69,6 @@
         "format": "vendor/bin/pint",
         "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
         "build": "@php vendor/bin/testbench workbench:build --ansi",
-        "sync": [
-            "cp -v resources/stubs/app.css.stub workbench/resources/css/app.css 2>/dev/null && echo '✓ Synced app.css' || echo '✗ Failed to sync app.css'"
-        ],
         "serve": [
             "Composer\\Config::disableProcessTimeout",
             "@build",
