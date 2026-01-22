@@ -24,6 +24,9 @@ class UmbraUIServiceProvider extends ServiceProvider
         // Load views from package
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'umbra');
 
+        // Register anonymous Blade components
+        Blade::anonymousComponentPath(__DIR__.'/../resources/views/components', 'umbra');
+
         // Register commands
         if ($this->app->runningInConsole()) {
             $this->commands([
