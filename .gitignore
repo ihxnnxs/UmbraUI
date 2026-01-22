@@ -40,4 +40,9 @@ phpunit.xml
 phpstan.neon
 /docs
 /coverage
+
+# AI/MCP configs (developer-specific)
 CLAUDE.md
+AGENTS.md
+.mcp.json
+opencode.json
