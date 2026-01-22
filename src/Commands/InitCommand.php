@@ -40,7 +40,11 @@ class InitCommand extends Command
         }
 
         // Get base color selection
-        $this->baseColor = $this->selectBaseColor();
+        $baseColor = $this->selectBaseColor();
+        if ($baseColor === null) {
+            return self::FAILURE;
+        }
+        $this->baseColor = $baseColor;
 
         // Create components.json
         $this->createComponentsJson();
@@ -57,7 +61,7 @@ class InitCommand extends Command
         return self::SUCCESS;
     }
 
-    protected function selectBaseColor(): string
+    protected function selectBaseColor(): ?string
     {
         // If base-color option provided, validate it
         if ($baseColor = $this->option('base-color')) {
@@ -65,7 +69,8 @@ class InitCommand extends Command
             if (! in_array($baseColor, $schemes)) {
                 $this->error("Invalid base color: {$baseColor}");
                 $this->line('Available options: '.implode(', ', $schemes));
-                exit(self::FAILURE);
+
+                return null;
             }
 
             return $baseColor;

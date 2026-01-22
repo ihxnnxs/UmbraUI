@@ -92,7 +92,6 @@
                 "Ihxnnxs\\UmbraUI\\UmbraUIServiceProvider"
             ],
             "aliases": {
-                "UmbraUI": "Ihxnnxs\\UmbraUI\\Facades\\UmbraUI",
                 "Toast": "Ihxnnxs\\UmbraUI\\Facades\\Toast"
             }
         }

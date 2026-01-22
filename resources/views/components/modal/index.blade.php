@@ -67,7 +67,7 @@
 
         <!-- Modal Dialog -->
         <div
-            class="relative bg-white dark:bg-neutral-900 rounded-lg shadow-xl {{ $maxWidthClass }} w-full mx-4 max-h-[90vh] overflow-hidden"
+            class="relative bg-card text-card-foreground rounded-lg shadow-xl {{ $maxWidthClass }} w-full mx-4 max-h-[90vh] overflow-hidden"
             @click.away="closeModal()"
             x-transition:enter="transition ease-out duration-300"
             x-transition:enter-start="opacity-0 scale-95"
@@ -77,10 +77,10 @@
             x-transition:leave-end="opacity-0 scale-95"
         >
             <!-- Header -->
-            <div class="flex items-center justify-between px-6 py-4 border-b border-neutral-200 dark:border-neutral-800">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-border">
                 <h2
                     id="{{ $titleId }}"
-                    class="text-lg font-semibold text-neutral-900 dark:text-neutral-50"
+                    class="text-lg font-semibold text-foreground"
                 >
                     {{ $title }}
                 </h2>
@@ -89,7 +89,7 @@
                     @click="closeModal()"
                     x-ref="closeButton"
                     type="button"
-                    class="inline-flex items-center justify-center w-8 h-8 text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:hover:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:ring-neutral-600"
+                    class="inline-flex items-center justify-center w-8 h-8 text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
                     aria-label="Close modal"
                 >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,14 +101,14 @@
             <!-- Content -->
             <div
                 id="{{ $contentId }}"
-                class="px-6 py-4 max-h-[60vh] overflow-y-auto text-neutral-600 dark:text-neutral-300"
+                class="px-6 py-4 max-h-[60vh] overflow-y-auto text-muted-foreground"
             >
                 {{ $slot }}
             </div>
 
             <!-- Footer -->
             @isset($footer)
-                <div class="px-6 py-4 border-t border-neutral-200 dark:border-neutral-800">
+                <div class="px-6 py-4 border-t border-border">
                     {{ $footer }}
                 </div>
             @endisset

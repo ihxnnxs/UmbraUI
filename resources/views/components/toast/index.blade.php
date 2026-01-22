@@ -6,24 +6,24 @@ $duration = $attributes->get('duration', 5000);
 
 $variants = [
     'success' => [
-        'wrapper' => 'bg-white dark:bg-neutral-950 border-l-4 border-l-emerald-500 border-2 border-neutral-200 dark:border-neutral-800 shadow-sm dark:shadow-neutral-900/10',
+        'wrapper' => 'bg-card border-l-4 border-l-emerald-500 border-2 border-border shadow-sm',
         'icon' => 'text-emerald-500 dark:text-emerald-400'
     ],
     'error' => [
-        'wrapper' => 'bg-white dark:bg-neutral-950 border-l-4 border-l-red-500 border-2 border-neutral-200 dark:border-neutral-800 shadow-sm dark:shadow-neutral-900/10',
+        'wrapper' => 'bg-card border-l-4 border-l-red-500 border-2 border-border shadow-sm',
         'icon' => 'text-red-500 dark:text-red-400'
     ],
     'warning' => [
-        'wrapper' => 'bg-white dark:bg-neutral-950 border-l-4 border-l-amber-500 border-2 border-neutral-200 dark:border-neutral-800 shadow-sm dark:shadow-neutral-900/10',
+        'wrapper' => 'bg-card border-l-4 border-l-amber-500 border-2 border-border shadow-sm',
         'icon' => 'text-amber-500 dark:text-amber-400'
     ],
     'info' => [
-        'wrapper' => 'bg-white dark:bg-neutral-950 border-l-4 border-l-blue-500 border-2 border-neutral-200 dark:border-neutral-800 shadow-sm dark:shadow-neutral-900/10',
+        'wrapper' => 'bg-card border-l-4 border-l-blue-500 border-2 border-border shadow-sm',
         'icon' => 'text-blue-500 dark:text-blue-400'
     ],
     'default' => [
-        'wrapper' => 'bg-white dark:bg-neutral-950 border-l-4 border-l-neutral-400 dark:border-l-neutral-600 border-2 border-neutral-200 dark:border-neutral-800 shadow-sm dark:shadow-neutral-900/10',
-        'icon' => 'text-neutral-500 dark:text-neutral-400'
+        'wrapper' => 'bg-card border-l-4 border-l-muted-foreground border-2 border-border shadow-sm',
+        'icon' => 'text-muted-foreground'
     ]
 ];
 
@@ -117,12 +117,12 @@ $toastId = 'toast-' . uniqid();
             
             <div class="ml-3 w-0 flex-1">
                 @if(isset($title))
-                <p class="text-sm font-medium text-neutral-900 dark:text-neutral-50">
+                <p class="text-sm font-medium text-foreground">
                     {{ $title }}
                 </p>
                 @endif
                 
-                <div class="text-sm text-neutral-600 dark:text-neutral-300 {{ isset($title) ? 'mt-1' : '' }}">
+                <div class="text-sm text-muted-foreground {{ isset($title) ? 'mt-1' : '' }}">
                     {{ $slot }}
                 </div>
                 
@@ -138,7 +138,7 @@ $toastId = 'toast-' . uniqid();
                 <button 
                     type="button"
                     @click="hide()"
-                    class="rounded-md inline-flex items-center justify-center w-6 h-6 {{ $variant['icon'] }} hover:bg-black/5 dark:hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-500"
+                    class="rounded-md inline-flex items-center justify-center w-6 h-6 {{ $variant['icon'] }} hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring"
                 >
                     <span class="sr-only">Close</span>
                     <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

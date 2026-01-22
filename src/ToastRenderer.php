@@ -23,7 +23,9 @@ class ToastRenderer
         $output = '';
 
         foreach ($toasts as $toast) {
-            $output .= view('umbra-ui::components.toast.index', [
+            /** @var view-string $viewName */
+            $viewName = 'umbra::components.toast.index';
+            $output .= view($viewName, [
                 'type' => $toast['type'] ?? 'default',
                 'title' => $toast['title'] ?? null,
                 'slot' => $toast['message'],

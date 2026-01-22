@@ -4,7 +4,7 @@ namespace Ihxnnxs\UmbraUI;
 
 class Toast
 {
-    public static function success(string $message, ?string $title = null): void
+    public function success(string $message, ?string $title = null): void
     {
         session()->flash('umbra_toast', [
             'type' => 'success',
@@ -13,7 +13,7 @@ class Toast
         ]);
     }
 
-    public static function error(string $message, ?string $title = null): void
+    public function error(string $message, ?string $title = null): void
     {
         session()->flash('umbra_toast', [
             'type' => 'error',
@@ -22,7 +22,7 @@ class Toast
         ]);
     }
 
-    public static function warning(string $message, ?string $title = null): void
+    public function warning(string $message, ?string $title = null): void
     {
         session()->flash('umbra_toast', [
             'type' => 'warning',
@@ -31,7 +31,7 @@ class Toast
         ]);
     }
 
-    public static function info(string $message, ?string $title = null): void
+    public function info(string $message, ?string $title = null): void
     {
         session()->flash('umbra_toast', [
             'type' => 'info',
@@ -40,7 +40,7 @@ class Toast
         ]);
     }
 
-    public static function message(string $message, string $type = 'default', ?string $title = null): void
+    public function message(string $message, string $type = 'default', ?string $title = null): void
     {
         session()->flash('umbra_toast', [
             'type' => $type,

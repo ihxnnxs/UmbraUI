@@ -1,5 +1,5 @@
 @php
-    $isInvalid = $attributes->has('aria-invalid') || $attributes->has('aria-describedby');
+    $isInvalid = $attributes->get('aria-invalid') === 'true' || $attributes->get('aria-invalid') === true;
 
     $baseClasses = cn(
         'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm',
