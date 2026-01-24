@@ -37,7 +37,7 @@
         @isset($trigger)
             {{ $trigger }}
         @else
-            <x-umbra.button>Open Popover</x-umbra.button>
+            <x-umbra::button>Open Popover</x-umbra::button>
         @endisset
     </div>
 

@@ -39,7 +39,7 @@ $dropdownId = 'dropdown-' . uniqid();
     @keydown.arrow-up.prevent="open ? focusPrevious() : (open = true, $nextTick(() => focusPrevious()))"
 >
     <!-- Trigger Button -->
-    <x-umbra.button 
+    <x-umbra::button
         @click="open = !open"
         {{ $attributes->except(['position']) }}
         class="gap-2"
@@ -52,19 +52,19 @@ $dropdownId = 'dropdown-' . uniqid();
         @else
             Dropdown
         @endisset
-        
+
         <!-- Chevron Icon -->
-        <svg 
-            class="w-4 h-4 transition-transform duration-200 text-neutral-300 dark:text-neutral-600" 
+        <svg
+            class="w-4 h-4 transition-transform duration-200 text-neutral-300 dark:text-neutral-600"
             x-bind:class="{ 'rotate-180': open }"
-            fill="none" 
-            stroke="currentColor" 
+            fill="none"
+            stroke="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
         >
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
-    </x-umbra.button>
+    </x-umbra::button>
 
     <!-- Dropdown Menu -->
     <div
