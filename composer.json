@@ -31,7 +31,7 @@
     },
     "require-dev": {
         "larastan/larastan": "^3.0",
-        "laravel/boost": "^1.1",
+        "laravel/boost": "^2.0",
         "laravel/pint": "^1.14",
         "orchestra/testbench": "*",
         "pestphp/pest": "^4.0",
